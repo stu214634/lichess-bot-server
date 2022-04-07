@@ -39,7 +39,7 @@ async function main() {
                 gameStart: async () => {
                     console.log("Game started with " + event.game.opponent.username);
                     const me = event.game.color[0];
-                    const engine = childProcess.spawn("main.exe", {
+                    const engine = childProcess.spawn("Chess.exe", {
                         stdio: ["pipe", "pipe"],
                     });
 
@@ -63,7 +63,7 @@ async function main() {
                         if (chess.turn() === me) {
                             console.log("Asking engine for move...");
                             engine.stdin.write("position fen " + chess.fen() + "\n");
-                            engine.stdin.write("go 5\n");
+                            engine.stdin.write("go 3\n");
                         }
                     });
 
